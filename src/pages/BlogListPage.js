@@ -38,7 +38,10 @@ function BlogListPage() {
               {/* --- MEJORA: Muestra la imagen si existe --- */}
               {post.image && (
                 <Link to={`/blog/${post._id}`} className="blog-summary-image-link">
-                  <img src={`http://localhost:5000/${post.image.replace(/\\/g, '/')}`} alt={post.title} />
+                  <img 
+                    src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${post.image.replace(/\\/g, '/')}`} 
+                    alt={post.title} 
+                  />
                 </Link>
               )}
               <div className="blog-summary-content">

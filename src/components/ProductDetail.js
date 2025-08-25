@@ -36,7 +36,7 @@ function ProductDetail() {
       <div className="product-detail-grid">
         {/* --- MEJORA: Contenedor de la imagen --- */}
         <div className="product-image-container">
-          <img src={`http://localhost:5000/${product.image}`} alt={product.name} />
+          <img src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${product.image}`} alt={product.name} />
         </div>
 
         {/* --- MEJORA: Contenedor de la información --- */}

@@ -35,7 +35,7 @@ function SinglePostPage() {
       {/* --- MEJORA: Muestra la imagen de cabecera si existe --- */}
       {post.image && (
         <img 
-          src={`http://localhost:5000/${post.image.replace(/\\/g, '/')}`} 
+          src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${post.image.replace(/\\/g, '/')}`} 
           alt={post.title} 
           className="post-header-image"
         />

@@ -25,7 +25,7 @@ function LandingPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí enviarías los datos a un endpoint específico para esta campaña
-    axios.post('http://localhost:5000/api/requests/landing-leads', formData)
+    api.post('/requests/landing-leads', formData)
       .then(response => {
         setMessage(`¡Gracias, ${formData.name}! Un asesor comercial de Vida Clean te contactará pronto.`);
         setFormData({ name: '', email: '', companyName: '' });
