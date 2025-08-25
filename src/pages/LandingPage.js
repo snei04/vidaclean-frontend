@@ -1,6 +1,6 @@
 // src/pages/LandingPage.js
 import React, { useState, useEffect   } from 'react';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
 
 function LandingPage() {
@@ -9,7 +9,7 @@ function LandingPage() {
   const [offer, setOffer] = useState({ title: '', description: '' });
 
    useEffect(() => {
-    axios.get('http://localhost:5000/api/content/offer')
+    api.get('/content/offer')
       .then(response => {
         setOffer(response.data);
       })

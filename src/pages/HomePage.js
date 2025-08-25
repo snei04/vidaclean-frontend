@@ -1,7 +1,7 @@
 // src/pages/HomePage.js
 // src/pages/HomePage.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 import ProductList from '../components/ProductList';
 
 function HomePage() {
@@ -10,7 +10,7 @@ function HomePage() {
 
   // Pide los datos del contenido al cargar la página
   useEffect(() => {
-    axios.get('http://localhost:5000/api/content/offer')
+    api.get('/content/offer')
       .then(response => {
         if (response.data) {
           setSiteContent(response.data);

@@ -1,7 +1,7 @@
 // src/pages/BlogListPage.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
 function BlogListPage() {
   const [posts, setPosts] = useState([]);
@@ -10,7 +10,7 @@ function BlogListPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/blog');
+        const { data } = await api.get('/blog');
         setPosts(data);
       } catch (error) {
         console.error('Error al obtener las publicaciones:', error);

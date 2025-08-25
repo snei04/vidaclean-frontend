@@ -1,7 +1,7 @@
 // src/pages/SinglePostPage.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
 function SinglePostPage() {
   const [post, setPost] = useState(null);
@@ -11,7 +11,7 @@ function SinglePostPage() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/blog/${id}`);
+        const { data } = await api.get(`/blog/${id}`);
         setPost(data);
       } catch (error) {
         console.error('Error al obtener la publicación:', error);
