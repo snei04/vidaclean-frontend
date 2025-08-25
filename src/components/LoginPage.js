@@ -1,7 +1,7 @@
 // frontend/src/components/LoginPage.js
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import api from '../api/axiosConfig'; // <-- 1. IMPORTA LA INSTANCIA 'api'
 
 function LoginPage() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -15,8 +15,10 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
-      // Guardamos el token en el almacenamiento local del navegador
+      // --- 2. USA 'api.post' CON UNA RUTA RELATIVA ---
+      // La instancia 'api' ya tiene la URL base (Render o localhost) configurada
+      const response = await api.post('/auth/login', formData);
+      
       localStorage.setItem('token', response.data.token);
       navigate('/admin/dashboard');
      

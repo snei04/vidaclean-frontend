@@ -79,7 +79,7 @@ function ProductList() {
         {products.map(product => (
           <Link to={`/products/${product.sku}`} key={product.sku} className="product-card-link">
             <div className="product-card">
-              <img src={`http://localhost:5000/${product.image}`} alt={product.name} />
+              <img src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/${product.image}`} alt={product.name} />
               <div className="product-card-info">
                 <h2>{product.name}</h2>
                 <p className="product-category">{product.category}</p>
