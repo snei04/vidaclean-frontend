@@ -1,6 +1,6 @@
 // frontend/src/components/QuoteModal.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
 function QuoteModal({ productSku, onClose, onQuoteSubmitted }) {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ function QuoteModal({ productSku, onClose, onQuoteSubmitted }) {
       user: formData,
     };
 
-    axios.post('http://localhost:5000/api/requests/quotes', requestData)
+    api.post('/requests/quotes', requestData)
       .then(response => {
         onQuoteSubmitted(); // Llama a la función para mostrar el mensaje de éxito
         onClose(); // Cierra el modal

@@ -1,5 +1,4 @@
 // src/pages/HomePage.js
-// src/pages/HomePage.js
 import React, { useState, useEffect } from 'react';
 import api from '../api/axiosConfig';
 import ProductList from '../components/ProductList';

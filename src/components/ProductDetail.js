@@ -1,7 +1,7 @@
 // frontend/src/components/ProductDetail.js
 // src/components/ProductDetail.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 import { useParams, Link } from 'react-router-dom';
 import QuoteModal from './QuoteModal';
 
@@ -13,7 +13,7 @@ function ProductDetail() {
 
   useEffect(() => {
     // Usamos la configuración de la API que ya tienes
-    axios.get(`http://localhost:5000/api/products/${sku}`)
+    api.get(`/products/${sku}`)
       .then(response => setProduct(response.data))
       .catch(error => console.error('Hubo un error al obtener el producto!', error));
   }, [sku]);

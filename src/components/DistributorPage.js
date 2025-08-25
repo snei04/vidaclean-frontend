@@ -1,6 +1,6 @@
 // frontend/src/components/DistributorPage.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
 function DistributorPage() {
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ function DistributorPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/requests/distributor-requests', formData)
+    api.post('/requests/distributor-requests', formData)
       .then(response => {
         setMessage('¡Gracias por tu interés! Hemos recibido tu solicitud y te contactaremos pronto.');
         setFormData({ companyName: '', nit: '', city: '', name: '', email: '' }); // Limpia el formulario
