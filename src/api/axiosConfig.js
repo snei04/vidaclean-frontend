@@ -4,7 +4,7 @@ import axios from 'axios';
 // Creamos una instancia de axios
 const api = axios.create({
   // Usará la URL de Render en producción, o localhost si la variable no está definida
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json'
   }
